@@ -56,6 +56,7 @@ public_tweets = api.home_timeline()
 
 # Let's pull apart one tweet to take a look at it.
 
+user_input = raw_input("Enter phrase you wish to search for: ")
 
 CACHE_FNAME="cache_file.json"
 
@@ -65,15 +66,24 @@ try:
 	CACHE_DICTION = json.loads(cache_contents)
 except: 
 	CACHE_DICTION={}
-	results = api.search(q="Arnold Schwarzenegger") 
-	CACHE_DICTION["results from search"] = results
+
+if user_input in CACHE_DICTION:
+	python_obj_data = CACHE_DICTION[user_input]
+else: 
+	results = api.search(q=user_input)
 	list_of_arnold = results["statuses"]
-	list_of_swars = list_of_arnold[:3] 
-	CACHE_DICTION["all_statuses"] = list_of_arnold
-	CACHE_DICTION["first_three_status"] = list_of_swars
+	python_obj_data = list_of_arnold[:3]  
+	CACHE_DICTION[user_input] = python_obj_data
 	cache_file = open(CACHE_FNAME, 'w') 
 	cache_file.write(json.dumps(CACHE_DICTION))
 	cache_file.close()
+
+
+
+
+
+
+	
 
 
 ##pring(g)
@@ -93,7 +103,7 @@ except:
 
 
 
-for tweet in CACHE_DICTION["first_three_status"]:
+for tweet in python_obj_data:
 	print("Text:"),
 	print(tweet["text"])
 	print("CREATED AT:"), 
