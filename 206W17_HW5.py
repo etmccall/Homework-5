@@ -5,8 +5,8 @@ import json
 
 ## SI 206 - W17 - HW5
 ## COMMENT WITH:
-## Your section day/time:
-## Any names of people you worked with on this assignment:
+## Your section day/time: Friday 1 
+## Any names of people you worked with on this assignment: Worked alone
 
 ######## 500 points total ########
 
@@ -56,6 +56,22 @@ public_tweets = api.home_timeline()
 
 # Let's pull apart one tweet to take a look at it.
 
+
+##pring(g)
+
+## What are the tags?
+##print("\n*** tags of the tweet dictionary ***")
+##print(single_tweet.keys())
+
+## Write the rest of your code here!
+
+#### Recommended order of tasks: ####
+## 1. Set up the caching pattern start -- the dictionary and the try/except statement shown in class.
+## 2. Write a function to get twitter data that works with the caching pattern, so it either gets new data or caches data, depending upon what the 
+##input to search for is. You can model this off the class exercise from Tuesday.
+## 3. Invoke your function, save the return value in a variable, and explore the data you got back!
+## 4. With what you learn from the data -- e.g. how exactly to find the text of each tweet in the big nested structure -- write code to print out content from 3 tweets, as shown above.
+
 user_input = raw_input("Enter phrase you wish to search for: ")
 
 CACHE_FNAME="cache_file.json"
@@ -78,28 +94,6 @@ else:
 	cache_file.write(json.dumps(CACHE_DICTION))
 	cache_file.close()
 
-
-
-
-
-
-	
-
-
-##pring(g)
-
-## What are the tags?
-##print("\n*** tags of the tweet dictionary ***")
-##print(single_tweet.keys())
-
-## Write the rest of your code here!
-
-#### Recommended order of tasks: ####
-## 1. Set up the caching pattern start -- the dictionary and the try/except statement shown in class.
-## 2. Write a function to get twitter data that works with the caching pattern, so it either gets new data or caches data, depending upon what the 
-##input to search for is. You can model this off the class exercise from Tuesday.
-## 3. Invoke your function, save the return value in a variable, and explore the data you got back!
-## 4. With what you learn from the data -- e.g. how exactly to find the text of each tweet in the big nested structure -- write code to print out content from 3 tweets, as shown above.
 
 
 
